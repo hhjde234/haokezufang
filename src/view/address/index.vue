@@ -1,5 +1,5 @@
 <template>
-  <div><router-view></router-view></div>
+  <div>当前位置</div>
 </template>
 
 <script>
