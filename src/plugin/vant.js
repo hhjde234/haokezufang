@@ -19,6 +19,11 @@ import {
   Button,
   Form,
   Field,
+  SwipeCell,
+  Card,
+  Tag,
+  Area,
+  Picker,
 } from "vant";
 const element = [
   Cell,
@@ -41,6 +46,11 @@ const element = [
   Button,
   Form,
   Field,
+  SwipeCell,
+  Card,
+  Tag,
+  Area,
+  Picker,
 ];
 export default function (Vue) {
   element.forEach((item) => Vue.use(item));

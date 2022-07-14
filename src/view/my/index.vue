@@ -46,9 +46,19 @@
       </div>
     </div>
     <!-- 下半部分 -->
-    <van-grid class="botton" clickable :column-num="3">
-      <van-grid-item icon="star-o" text="我的收藏" to="/" />
-      <van-grid-item icon="wap-home-o" text="我的出租" to="/" />
+    <!-- 未登录 -->
+    <van-grid v-if="!user" class="botton" clickable :column-num="3">
+      <van-grid-item icon="star-o" text="我的收藏" to="/userlogin" />
+      <van-grid-item icon="wap-home-o" text="我的出租" to="/userlogin" />
+      <van-grid-item icon="underway-o" text="看房记录" to="/userlogin" />
+      <van-grid-item icon="refund-o" text="成为房主" to="/userlogin" />
+      <van-grid-item icon="user-o" text="个人资料" to="/userlogin" />
+      <van-grid-item icon="phone-circle-o" text="联系我们" to="/userlogin" />
+    </van-grid>
+    <!-- 已登录 -->
+    <van-grid v-else class="botton" clickable :column-num="3">
+      <van-grid-item icon="star-o" text="我的收藏" to="/soucang" />
+      <van-grid-item icon="wap-home-o" text="我的出租" to="/rent" />
       <van-grid-item icon="underway-o" text="看房记录" to="/" />
       <van-grid-item icon="refund-o" text="成为房主" to="/" />
       <van-grid-item icon="user-o" text="个人资料" to="/" />
@@ -84,7 +94,7 @@ export default {
       });
       console.log("确认退出");
       this.$store.commit("setToken", null);
-      this.$router.push("/userlogin");
+      this.$router.push("/layout/my");
     },
     async getUserInfo() {
       const res = await getUserInfo(this.user);
@@ -200,7 +210,7 @@ export default {
 }
 .hk {
   margin: 10px auto;
-  width: 350px;
+  width: 300px;
   height: 94px;
   img {
     width: 100%;

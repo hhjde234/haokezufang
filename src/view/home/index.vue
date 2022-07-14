@@ -10,7 +10,9 @@
 
     <div class="top">
       <div class="city">
-        <span @click="city">杭州<van-icon name="arrow-down" /></span>
+        <span @click="city"
+          >{{ hotCityNow }}<van-icon name="arrow-down"
+        /></span>
       </div>
       <van-search
         v-model="value"
@@ -47,6 +49,7 @@
 
 <script>
 import { Rent } from "@/api";
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -60,6 +63,9 @@ export default {
         "http://liufusong.top:8080/img/swiper/3.png",
       ],
     };
+  },
+  computed: {
+    ...mapState(["hotCityNow"]),
   },
   created() {
     this.Rent();

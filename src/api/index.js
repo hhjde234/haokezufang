@@ -1,4 +1,9 @@
-export * from "./home";
-export * from "./dangqian";
-export * from "./userlogin";
-export * from "./my";
+export * from "./home"; //主页
+export * from "./dangqian"; //城市列表
+export * from "./userlogin"; //登入
+export * from "./my"; //我的
+export * from "./collection"; //收藏
+export * from "./registered"; //注册
+export * from "./rent"; //出租
+export * from "./cityinfo"; //城市信息
+export * from "./deilt"; //房屋详情信息

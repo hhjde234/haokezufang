@@ -1,9 +1,12 @@
 <template>
-  <div>当前位置</div>
+  <div><Title title1="地图找房"></Title></div>
 </template>
 
 <script>
-export default {}
+import Title from "@/components/Title.vue";
+export default {
+  components: { Title },
+};
 </script>
 
 <style></style>

@@ -3,7 +3,7 @@
     <!-- top -->
     <van-nav-bar
       class="top"
-      title="账号登陆"
+      title="账号注册"
       left-arrow
       @click-left="onClickLeft"
     />
@@ -29,18 +29,16 @@
         />
         <div style="margin: 16px">
           <van-button class="btn" round block type="info" native-type="submit"
-            >登录</van-button
+            >注册</van-button
           >
         </div>
       </van-form>
     </div>
-    <!-- 底部文字 -->
-    <div class="txt" @click="goRegistered">还没有账号,去注册~</div>
   </div>
 </template>
 
 <script>
-import { userlogin } from "@/api";
+import { registered } from "@/api";
 import { Toast } from "vant";
 export default {
   data() {
@@ -65,22 +63,19 @@ export default {
     };
   },
   methods: {
-    goRegistered() {
-      this.$router.push("/registered");
-    },
     async onSubmit() {
       try {
-        const res = await userlogin(this.body);
+        const res = await registered(this.body);
         console.log(res);
         this.$store.commit("setToken", res.data.body.token);
         Toast.success(res.data.description);
-        this.$router.push("/layout/my");
+        this.$router.push("/userlogin");
       } catch (e) {
-        console.log(e.data.description);
+        console.log(e);
       }
     },
     onClickLeft() {
-      this.$router.push("/layout/my");
+      this.$router.push("/userlogin");
     },
   },
 };
@@ -113,5 +108,13 @@ export default {
   font-size: 12px;
   margin-top: 20px;
   margin-left: 130px;
+}
+.van-card {
+  height: 120px;
+  position: relative;
+  box-sizing: border-box;
+  justify-content: space-around;
+  padding-top: 18px;
+  border-bottom: 1px solid #e5e5e5;
 }
 </style>
